@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5539F2701EBA36230087FAD8 /* MarkerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5539F26F1EBA36230087FAD8 /* MarkerView.swift */; };
+		5539F2721EBA36E10087FAD8 /* MarkerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5539F2711EBA36E10087FAD8 /* MarkerView.xib */; };
 		555AEA201EB85BEC0027610B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555AEA1F1EB85BEC0027610B /* AppDelegate.swift */; };
 		555AEA221EB85BEC0027610B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555AEA211EB85BEC0027610B /* ViewController.swift */; };
 		555AEA251EB85BEC0027610B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 555AEA231EB85BEC0027610B /* Main.storyboard */; };
@@ -26,6 +28,8 @@
 
 /* Begin PBXFileReference section */
 		1CAFC5EABC36078BCDBAEEA6 /* Pods-TestToUpwork.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestToUpwork.release.xcconfig"; path = "Pods/Target Support Files/Pods-TestToUpwork/Pods-TestToUpwork.release.xcconfig"; sourceTree = "<group>"; };
+		5539F26F1EBA36230087FAD8 /* MarkerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkerView.swift; sourceTree = "<group>"; };
+		5539F2711EBA36E10087FAD8 /* MarkerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MarkerView.xib; sourceTree = "<group>"; };
 		555AEA1C1EB85BEC0027610B /* TestToUpwork.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestToUpwork.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		555AEA1F1EB85BEC0027610B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		555AEA211EB85BEC0027610B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -103,12 +107,14 @@
 				555AEA211EB85BEC0027610B /* ViewController.swift */,
 				555AEA391EB8848F0027610B /* GoogleMapViewController.swift */,
 				555AEA231EB85BEC0027610B /* Main.storyboard */,
+				5539F2711EBA36E10087FAD8 /* MarkerView.xib */,
 				555AEA261EB85BEC0027610B /* Assets.xcassets */,
 				555AEA281EB85BEC0027610B /* LaunchScreen.storyboard */,
 				555AEA2B1EB85BEC0027610B /* Info.plist */,
 				555AEA3B1EB8926E0027610B /* ListPageViewController.swift */,
 				555AEA3D1EB893C20027610B /* ListTableViewController.swift */,
 				555AEA441EB8BD8E0027610B /* ListTableViewCell.swift */,
+				5539F26F1EBA36230087FAD8 /* MarkerView.swift */,
 			);
 			path = TestToUpwork;
 			sourceTree = "<group>";
@@ -202,6 +208,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5539F2721EBA36E10087FAD8 /* MarkerView.xib in Resources */,
 				555AEA2A1EB85BEC0027610B /* LaunchScreen.storyboard in Resources */,
 				555AEA271EB85BEC0027610B /* Assets.xcassets in Resources */,
 				555AEA251EB85BEC0027610B /* Main.storyboard in Resources */,
@@ -267,6 +274,7 @@
 				555AEA431EB8B46B0027610B /* Fueling.swift in Sources */,
 				555AEA331EB863360027610B /* CAGradientLayer.swift in Sources */,
 				555AEA221EB85BEC0027610B /* ViewController.swift in Sources */,
+				5539F2701EBA36230087FAD8 /* MarkerView.swift in Sources */,
 				555AEA3C1EB8926E0027610B /* ListPageViewController.swift in Sources */,
 				555AEA3E1EB893C20027610B /* ListTableViewController.swift in Sources */,
 				555AEA3A1EB8848F0027610B /* GoogleMapViewController.swift in Sources */,

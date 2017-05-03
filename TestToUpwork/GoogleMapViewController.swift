@@ -17,11 +17,16 @@ class GoogleMapViewController: UIViewController, MarkerDelegate {
     
     var map: GMSMapView?
     var markers = [GMSMarker]()
+    var overlay = MarkerView.loadFromNib()
+    var arrow: UIImageView!
     
     weak var delegate: GMSMapDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        arrow = UIImageView(frame: CGRect(x: 0, y: 25, width: 15, height: 4))
+        arrow.image = UIImage(named: "arrow_marker")
         
         if let APIKey = Bundle.main.object(forInfoDictionaryKey: "GoogleMapsAPI") as? String {
             
@@ -45,10 +50,9 @@ class GoogleMapViewController: UIViewController, MarkerDelegate {
             let marker = GMSMarker(position: position)
             marker.map = map
             marker.isDraggable = false
-            marker.icon = UIImage(named: "mapPoint")
-            marker.title = fueling.name
+            marker.icon = UIImage()
             marker.userData = fueling.id
-            
+
             markers.append(marker)
             
         }
@@ -72,6 +76,9 @@ class GoogleMapViewController: UIViewController, MarkerDelegate {
         let position = CLLocationCoordinate2DMake((fueling?.lat)!, (fueling?.lng)!)
         let cameraUpdate = GMSCameraUpdate.setTarget(position, zoom: 15.0)
         
+        overlay.addressLabel.text = fueling?.address
+        overlay.costLabel.text = fueling?.cost.appending(" ₽")
+        
         CATransaction.begin()
         CATransaction.setValue(Int(1.0), forKey: kCATransactionAnimationDuration)
         CATransaction.setAnimationTimingFunction(CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut))
@@ -85,6 +92,39 @@ extension GoogleMapViewController: GMSMapViewDelegate {
     
     func mapView(_ mapView: GMSMapView, didTapAt coordinate: CLLocationCoordinate2D) {
         delegate?.didTap()
+    }
+    
+    
+    func mapView(_ mapView: GMSMapView, markerInfoWindow marker: GMSMarker) -> UIView? {
+        
+        
+        overlay.removeFromSuperview()
+        arrow.removeFromSuperview()
+        let anchor = mapView.selectedMarker?.position
+        let point = mapView.projection.point(for: anchor!)
+        
+        arrow.center = CGPoint(x: point.x, y: point.y - 5)
+        mapView.addSubview(arrow)
+        
+        overlay.center = CGPoint(x: point.x + 55, y: point.y - 20)
+        mapView.addSubview(overlay)
+        
+        return UIView()
+    }
+    
+    func mapView(_ mapView: GMSMapView, didChange position: GMSCameraPosition) {
+        
+        if mapView.selectedMarker != nil && (self.overlay.superview != nil) {
+            let anchor = mapView.selectedMarker?.position
+            let point = mapView.projection.point(for: anchor!)
+            overlay.center = CGPoint(x: point.x + 55, y: point.y - 20)
+
+            arrow.center = CGPoint(x: point.x, y: point.y - 5)
+            mapView.addSubview(arrow)
+        }
+        
+
+        
     }
     
 }
